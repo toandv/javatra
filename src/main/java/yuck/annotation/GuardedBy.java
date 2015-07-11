@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-@Target(ElementType.TYPE)
-public @interface Immutable {
-
+@Target(ElementType.FIELD)
+public @interface GuardedBy {
+	String value() default "";
 }

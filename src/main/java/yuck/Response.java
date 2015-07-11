@@ -1,5 +1,5 @@
 package yuck;
 
-public class Response {
+public interface Response {
 
 }

@@ -8,7 +8,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.HandlerList;
 
-public class SimpleServer {
+public class YuckServer {
 
 	private static final int DEFAUTL_PORT = 8888;
 
@@ -22,11 +22,11 @@ public class SimpleServer {
 
 	private long idleTimeout = DEFAULT_IDLE_TIMEOUT;
 
-	public SimpleServer(Handler handler) {
+	public YuckServer(Handler handler) {
 		this.handler = handler;
 	}
 
-	public void go() {
+	public void start() {
 		try {
 			server = new Server();
 			ServerConnector connector = new ServerConnector(server);
@@ -39,16 +39,19 @@ public class SimpleServer {
 			server.start();
 			server.join();
 		} catch (Exception e) {
+			// TODO : log here
 			System.exit(1);
 		}
 	}
 
 	public void stop() {
-
-	}
-
-	public static void main(String[] args) {
-		SimpleServer server = new SimpleServer(new SimpleHandler());
-		server.go();
+		if (server != null) {
+			try {
+				server.stop();
+			} catch (Exception e) {
+				// TODO : log here
+				System.exit(1);
+			}
+		}
 	}
 }
