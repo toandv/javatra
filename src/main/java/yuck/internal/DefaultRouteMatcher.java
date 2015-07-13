@@ -1,10 +1,15 @@
-package yuck;
+package yuck.internal;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import yuck.HttpMethod;
+import yuck.Route;
+import yuck.RouteMatcher;
+import yuck.Target;
 import yuck.annotation.Mutable;
+import yuck.factory.RouteFactory;
 import yuck.utils.Lists;
 
 @Mutable
@@ -26,6 +31,10 @@ public class DefaultRouteMatcher implements RouteMatcher {
 			return findPostRoute(requestUriParts);
 		case put:
 			return findPutRoute(requestUriParts);
+		case delete:
+			break;
+		default:
+			break;
 		}
 
 		return null;
@@ -53,13 +62,13 @@ public class DefaultRouteMatcher implements RouteMatcher {
 	}
 
 	private Route notFound() {
-		// return error route
+		// TODO return error route
 		return null;
 	}
 
 	@Override
 	public void addRoute(HttpMethod method, String uri, Target target) {
-		Route route = new DefaultRoute(method, uri, target);
+		Route route = RouteFactory.create(method, uri, target);
 		switch (method) {
 		case get:
 			addRoute(getRoutes, route);
@@ -70,6 +79,10 @@ public class DefaultRouteMatcher implements RouteMatcher {
 		case put:
 			addRoute(getRoutes, route);
 			return;
+		case delete:
+			break;
+		default:
+			break;
 		}
 	}
 

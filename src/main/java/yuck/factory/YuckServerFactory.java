@@ -1,4 +1,7 @@
-package yuck;
+package yuck.factory;
+
+import yuck.internal.DefaultHandler;
+import yuck.internal.YuckServer;
 
 public class YuckServerFactory {
 

@@ -10,4 +10,5 @@ public interface Request {
 	String body();
 
 	<T> T body(Class<T> type);
+
 }

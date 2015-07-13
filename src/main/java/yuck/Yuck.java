@@ -1,6 +1,9 @@
 package yuck;
 
 import yuck.annotation.GuardedBy;
+import yuck.factory.RouteMatcherFactory;
+import yuck.factory.YuckServerFactory;
+import yuck.internal.YuckServer;
 
 public class Yuck {
 

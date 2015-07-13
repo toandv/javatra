@@ -1,8 +1,11 @@
-package yuck;
+package yuck.internal;
 
 import java.util.List;
 import java.util.Objects;
 
+import yuck.HttpMethod;
+import yuck.Route;
+import yuck.Target;
 import yuck.annotation.Immutable;
 import yuck.utils.Lists;
 import yuck.utils.ParamUtils;

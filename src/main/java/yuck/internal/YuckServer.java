@@ -1,4 +1,4 @@
-package yuck;
+package yuck.internal;
 
 import java.util.concurrent.TimeUnit;
 

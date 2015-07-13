@@ -1,5 +1,5 @@
 package yuck;
 
 public enum HttpMethod {
-	get, post, put
+	get, post, put, delete
 }
