@@ -23,7 +23,7 @@ public class Yuck {
 	}
 
 	public static synchronized void yuck() {
-		// thread waiting yuckServer to die/join
+		// thread waiting yuckServer to die/join, so not blocking the main thread
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
